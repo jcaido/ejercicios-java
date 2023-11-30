@@ -67,5 +67,4 @@ public class Ejercicio7 {
             cuadrante[x][y] = INTENTO;
         } while (!salir);
     }
-    }
 }
