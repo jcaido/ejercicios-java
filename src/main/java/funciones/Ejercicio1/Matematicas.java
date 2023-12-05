@@ -26,4 +26,12 @@ public class Matematicas {
         }
         return true;
     }
+
+    public static int siguientePrimo(int n) {
+        int siguiente = n + 1;
+        while (!esPrimo(siguiente)) {
+            siguiente++;
+        }
+        return siguiente;
+    }
 }
