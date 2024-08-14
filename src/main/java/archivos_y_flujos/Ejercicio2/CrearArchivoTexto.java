@@ -1,4 +1,4 @@
-package archivos_y_flujos.ejercicio2;
+package archivos_y_flujos.Ejercicio2;
 
 import java.io.FileNotFoundException;
 import java.util.Formatter;

@@ -1,4 +1,4 @@
-package archivos_y_flujos.ejercicio2;
+package archivos_y_flujos.Ejercicio3;
 
 public class RegistroCuenta {
 

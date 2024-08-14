@@ -1,4 +1,4 @@
-package archivos_y_flujos.ejercicio1;
+package archivos_y_flujos.Ejercicio1;
 
 import java.util.Scanner;
 
