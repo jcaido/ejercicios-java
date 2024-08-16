@@ -9,6 +9,7 @@ public class Ejercicio4 {
      */
 
     public static void main(String[] args) {
-
+        ConsultaCredito consultaCredito = new ConsultaCredito();
+        consultaCredito.procesarSolicitudes();
     }
 }

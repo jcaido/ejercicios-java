@@ -1,5 +1,7 @@
 package archivos_y_flujos.Ejercicio4;
 
+import com.sun.source.tree.WhileLoopTree;
+
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -32,8 +34,28 @@ public class ConsultaCredito {
         return this.opciones[solicitud -1];
     }
 
+    private void leerRegistros() {
+
+    }
+
     public void procesarSolicitudes() {
 
         this.tipoCuenta = this.obtenerSolicitud();
+
+        while (this.tipoCuenta != OpcionMenu.FIN) {
+            switch (this.tipoCuenta) {
+                case SALDO_CERO:
+                    System.out.println("\nCuentas con saldo cero:\n");
+                    break;
+                case SALDO_CREDITO:
+                    System.out.println("\nCuentas con saldos con credito:\n");
+                    break;
+                case SALDO_DEBITO:
+                    System.out.println("\nCuentas con saldos con debito");
+                    break;
+            }
+            leerRegistros();
+            this.tipoCuenta = this.obtenerSolicitud();
+        }
     }
 }
