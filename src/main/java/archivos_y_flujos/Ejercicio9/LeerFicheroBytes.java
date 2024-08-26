@@ -1,10 +1,11 @@
 package archivos_y_flujos.Ejercicio9;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class LeerFicheroBytes {
+
+    private int datosEntrada[] = new int[86253];
 
     public void leer() {
 
@@ -12,7 +13,6 @@ public class LeerFicheroBytes {
             FileInputStream entrada = new FileInputStream("C:/Users/Usuario/Desktop/polideportivo-portada.jpg");
             boolean finalAr = false;
             int contador = 0;
-            int datosEntrada[] = new int[86253];
 
             while (!finalAr) {
                 int byteEntrada = entrada.read();
@@ -23,16 +23,24 @@ public class LeerFicheroBytes {
                 else
                     finalAr = true;
 
-                System.out.println(datosEntrada[contador]);
+                //System.out.println(datosEntrada[contador]);
 
                 contador++;
             }
 
             entrada.close();
 
-            System.out.println(contador);
         } catch (IOException e) {
             System.out.println("Error al abrir el archivo");
         }
+    }
+
+    public void imprimirArrayDatos() {
+        for (int dato: datosEntrada)
+            System.out.println(dato);
+    }
+
+    public int[] obtenerArrayDatos() {
+        return datosEntrada;
     }
 }
