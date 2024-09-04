@@ -1,10 +1,13 @@
 package archivos_y_flujos.Ejercicio10;
 
 import java.io.Serializable;
+import java.rmi.server.UID;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Empleado implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private double sueldo;

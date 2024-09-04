@@ -31,6 +31,7 @@ public class Ejercicio10 {
 
             for (Empleado empleado: personal_recuperado)
                 System.out.println(empleado);
+
         } catch (IOException e) {
             System.out.println("error al abrir el archivo");
         } catch (ClassNotFoundException e) {

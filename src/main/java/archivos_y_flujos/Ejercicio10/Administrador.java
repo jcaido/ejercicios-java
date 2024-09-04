@@ -2,6 +2,7 @@ package archivos_y_flujos.Ejercicio10;
 
 public class Administrador extends Empleado{
 
+    private static final long serialVersionUID = 1L;
     private double incentivo;
 
     public Administrador(String n, double s, int agno, int mes, int dia) {
