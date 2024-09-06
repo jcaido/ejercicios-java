@@ -14,7 +14,7 @@ public class Ejercicio11 {
         //System.out.println(archivo.getAbsolutePath());
         //System.out.println(archivo.exists());
 
-        File ruta = new File("C:/Users/Usuario/Desktop/angular/mi-polideportivo");
+        File ruta = new File("C:" + File.separator + "Users" + File.separator + "Usuario" + File.separator + "Desktop" + File.separator + "angular" + File.separator + "mi-polideportivo");
         System.out.println(ruta.getAbsolutePath());
         String[] nombres_archivos = ruta.list();
         for (int i=0; i<nombres_archivos.length; i++) {
