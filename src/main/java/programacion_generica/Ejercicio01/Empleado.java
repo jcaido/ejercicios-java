@@ -13,6 +13,6 @@ public class Empleado {
     }
 
     public String dameDatos() {
-        return "El empleado se llama " + nombre + ". Tiene " + edad + " años. Y un saladio de " + salario;
+        return "El empleado se llama " + nombre + ". Tiene " + edad + " anios. Y un salario de " + salario;
     }
 }
