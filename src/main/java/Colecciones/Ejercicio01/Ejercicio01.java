@@ -1,4 +1,4 @@
-package Colecciones;
+package Colecciones.Ejercicio01;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 public class Ejercicio01 {
 
     /*
-
+        HashSet
      */
 
     public static void main(String[] args) {

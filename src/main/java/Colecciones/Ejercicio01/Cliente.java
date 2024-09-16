@@ -1,4 +1,4 @@
-package Colecciones;
+package Colecciones.Ejercicio01;
 
 public class Cliente {
 
