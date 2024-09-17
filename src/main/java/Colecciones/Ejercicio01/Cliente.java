@@ -1,5 +1,7 @@
 package Colecciones.Ejercicio01;
 
+import java.util.Objects;
+
 public class Cliente {
 
     private String nombre;
@@ -37,5 +39,18 @@ public class Cliente {
     public Cliente setSaldo(double saldo) {
         this.saldo = saldo;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cliente)) return false;
+        Cliente cliente = (Cliente) o;
+        return getNumeroCuenta().equals(cliente.getNumeroCuenta());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumeroCuenta());
     }
 }
