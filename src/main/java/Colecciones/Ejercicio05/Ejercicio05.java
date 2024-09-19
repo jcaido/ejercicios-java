@@ -6,7 +6,7 @@ import java.util.ListIterator;
 public class Ejercicio05 {
 
     /*
-
+        Ejercicio LinkedList
      */
 
     public static void main(String[] args) {
@@ -32,6 +32,20 @@ public class Ejercicio05 {
             iterA.add(iterB.next());
         }
 
+        System.out.println(paises);
+
+        iterB = capitales.listIterator();
+        while (iterB.hasNext()) {
+            iterB.next();
+            if (iterB.hasNext()) {
+                iterB.next();
+                iterB.remove();
+            }
+        }
+
+        System.out.println(capitales);
+
+        paises.removeAll(capitales);
         System.out.println(paises);
     }
 }
