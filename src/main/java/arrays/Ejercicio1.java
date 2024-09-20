@@ -27,5 +27,10 @@ public class Ejercicio1 {
             System.out.println(element);
         }
 
+        //creamos ahora el array de otra forma y lo recorremos  de otra forma
+        int[] num1 = {39, -2, 0, 14, 5, 120};
+        for (int i=0;i<num1.length;i++)
+            System.out.println(num[i]);
+
     }
 }
