@@ -11,7 +11,7 @@ public class Ejercicio3 {
 
     public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
+        /*Scanner s = new Scanner(System.in);
         int[] array = new int[10];
 
         for (int i = 0; i < array.length; i++) {
@@ -21,6 +21,17 @@ public class Ejercicio3 {
 
         for (int i = array.length - 1; i >= 0; i-- ) {
             System.out.println(array[i]);
+        }*/
+
+        Scanner scanner = new Scanner(System.in);
+        int[] miArray = new int[5];
+
+        for (int i=0;i<miArray.length;i++) {
+            System.out.println("Introduzca un numero: ");
+            miArray[i] = Integer.parseInt(scanner.next());
         }
+
+        for (int i= miArray.length-1;i>=0; i--)
+            System.out.println(miArray[i]);
     }
 }
