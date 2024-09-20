@@ -28,5 +28,10 @@ public class Ejercicio2 {
             System.out.println(element);
         }
 
+        //Creamos y recorremos el array de otra forma
+        char[] simbolo1 = {'a', 'x', '@', ' ', '+', 'Q'};
+        for (int i=0;i<simbolo1.length;i++)
+            System.out.println(simbolo1[i]);
+
     }
 }
