@@ -28,5 +28,16 @@ public class Ejercicio06 {
         for (Articulo articulo: ordenaArticulos) {
             System.out.println(articulo.getDescripcion());
         }
+
+        Articulo comparadorArticulos = new Articulo();
+        TreeSet<Articulo> ordenaArticulos2 = new TreeSet<>(comparadorArticulos);
+
+        ordenaArticulos2.add(new Articulo(2, "Segundo articulo"));
+        ordenaArticulos2.add(new Articulo(3, "Tercer articulo"));
+        ordenaArticulos2.add(new Articulo(1, "Primer articulo"));
+
+        for (Articulo articulo: ordenaArticulos2) {
+            System.out.println(articulo.getDescripcion());
+        }
     }
 }

@@ -1,9 +1,13 @@
 package Colecciones.Ejercicio06;
 
-public class Articulo implements Comparable<Articulo>{
+import java.util.Comparator;
+
+public class Articulo implements Comparable<Articulo>, Comparator<Articulo> {
 
     private int numeroArticulo;
     private String descripcion;
+
+    public Articulo() {}
 
     public Articulo(int numeroArticulo, String descripcion) {
         this.numeroArticulo = numeroArticulo;
@@ -17,5 +21,13 @@ public class Articulo implements Comparable<Articulo>{
     @Override
     public int compareTo(Articulo o) {
         return this.numeroArticulo - o.numeroArticulo;
+    }
+
+    @Override
+    public int compare(Articulo o1, Articulo o2) {
+        String descripcionA = o1.getDescripcion();
+        String descripcionB = o2.getDescripcion();
+
+        return descripcionA.compareTo(descripcionB);
     }
 }
