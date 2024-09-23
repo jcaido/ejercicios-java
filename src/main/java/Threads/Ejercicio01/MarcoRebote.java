@@ -16,10 +16,21 @@ public class MarcoRebote extends JFrame {
         add(lamina, BorderLayout.CENTER);
         JPanel laminaBotones = new JPanel();
 
-        ponerBoton(laminaBotones, "Dale!", e -> comienza_el_juego());
+        ponerBoton(laminaBotones, "Dale!", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evento) {
+                comienza_el_juego();
+            }
+        });
 
-        ponerBoton(laminaBotones, "Salir!", e -> System.exit(0));
+        ponerBoton(laminaBotones, "Salir!", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
+        add(laminaBotones, BorderLayout.SOUTH);
     }
 
     public void ponerBoton(Container c, String titulo, ActionListener oyente) {
@@ -31,7 +42,7 @@ public class MarcoRebote extends JFrame {
     public void comienza_el_juego() {
         Pelota pelota = new Pelota();
         lamina.add(pelota);
-        for (int i=0; i<=3000; i++) {
+        for (int i=1; i<=3000; i++) {
             pelota.mueve_pelota(lamina.getBounds());
             lamina.paint(lamina.getGraphics());
             try {
