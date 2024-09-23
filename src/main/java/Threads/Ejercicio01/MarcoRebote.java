@@ -42,7 +42,8 @@ public class MarcoRebote extends JFrame {
     public void comienza_el_juego() {
         Pelota pelota = new Pelota();
         lamina.add(pelota);
-        for (int i=1; i<=3000; i++) {
+
+        /*for (int i=1; i<=3000; i++) {
             pelota.mueve_pelota(lamina.getBounds());
             lamina.paint(lamina.getGraphics());
             try {
@@ -50,6 +51,10 @@ public class MarcoRebote extends JFrame {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
+
+        Runnable r = new PelotaHilos(pelota, lamina);
+        Thread t = new Thread(r);
+        t.start();
     }
 }
