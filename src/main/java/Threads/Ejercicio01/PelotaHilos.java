@@ -15,7 +15,9 @@ public class PelotaHilos implements Runnable{
     @Override
     public void run() {
 
-        for (int i=1; i<=3000; i++) {
+        System.out.println("Estado del hilo al comenzar: " + Thread.currentThread().isInterrupted());
+
+        /*for (int i=1; i<=3000; i++) {
             pelota.mueve_pelota(componente.getBounds());
             componente.paint(componente.getGraphics());
             try {
@@ -23,6 +25,13 @@ public class PelotaHilos implements Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+        }*/
+
+        while (!Thread.currentThread().isInterrupted()) {
+            pelota.mueve_pelota(componente.getBounds());
+            componente.paint(componente.getGraphics());
         }
+
+        System.out.println("Estado del hilo al terminar: " + Thread.currentThread().isInterrupted());
     }
 }

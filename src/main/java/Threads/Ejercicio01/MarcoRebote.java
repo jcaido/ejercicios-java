@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class MarcoRebote extends JFrame {
 
     private LaminaPelota lamina;
+    private Thread t;
 
     public MarcoRebote() {
         setBounds(600, 300, 400, 350);
@@ -20,6 +21,13 @@ public class MarcoRebote extends JFrame {
             @Override
             public void actionPerformed(ActionEvent evento) {
                 comienza_el_juego();
+            }
+        });
+
+        ponerBoton(laminaBotones, "Detener", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                detener();
             }
         });
 
@@ -54,7 +62,15 @@ public class MarcoRebote extends JFrame {
         }*/
 
         Runnable r = new PelotaHilos(pelota, lamina);
-        Thread t = new Thread(r);
+        //Thread t = new Thread(r);
+        this.t = new Thread(r);
         t.start();
+    }
+
+    public void detener() {
+
+        //this.t.stop();
+
+        this.t.interrupt();
     }
 }
