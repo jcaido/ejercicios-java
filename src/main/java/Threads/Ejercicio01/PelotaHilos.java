@@ -30,6 +30,12 @@ public class PelotaHilos implements Runnable{
         while (!Thread.currentThread().isInterrupted()) {
             pelota.mueve_pelota(componente.getBounds());
             componente.paint(componente.getGraphics());
+            try {
+                Thread.sleep(4);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            ;
         }
 
         System.out.println("Estado del hilo al terminar: " + Thread.currentThread().isInterrupted());
