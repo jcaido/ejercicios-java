@@ -8,7 +8,7 @@ public class Ejercicio02 {
 
     public static void main(String[] args) {
 
-        HilosVarios hilo1 = new HilosVarios();
+        /*HilosVarios hilo1 = new HilosVarios();
         HilosVarios hilo2 = new HilosVarios();
 
         hilo1.start();
@@ -27,6 +27,14 @@ public class Ejercicio02 {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Terminadas las tareas");
+        System.out.println("Terminadas las tareas");*/
+
+        HilosVarios hilo1 = new HilosVarios();
+        HilosVarios2 hilo2 =new HilosVarios2(hilo1);
+
+        hilo1.start();
+        hilo2.start();
+
+        System.out.println("Tareas terminadas");
     }
 }
