@@ -15,16 +15,16 @@ public class EjecucionTransferencias implements Runnable{
     @Override
     public void run() {
 
-        while(true) {
-            int cuentaDestino = (int)(Math.random()*100);
-            double cantidad = (int)(Math.random()*cantidadMaxima);
+        try {
+            while(true) {
+                int cuentaDestino = (int)(Math.random()*100);
+                double cantidad = (int)(Math.random()*cantidadMaxima);
 
-            this.banco.transferencia(cuentaOrigen, cuentaDestino, cantidad);
-            try {
+                this.banco.transferencia(cuentaOrigen, cuentaDestino, cantidad);
                 Thread.sleep((int)(Math.random()*10));
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
