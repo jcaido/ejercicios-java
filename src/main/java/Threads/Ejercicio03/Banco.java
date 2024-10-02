@@ -7,8 +7,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Banco {
 
     private final double[] cuentas;
-    private Lock cierreBanco = new ReentrantLock();
-    private Condition saldoSuficiente;
+    //private Lock cierreBanco = new ReentrantLock();
+    //private Condition saldoSuficiente;
 
     public Banco() {
         cuentas = new double[100];
@@ -17,17 +17,18 @@ public class Banco {
             cuentas[i] = 2000;
         }
 
-        this.saldoSuficiente = cierreBanco.newCondition();
+        //this.saldoSuficiente = cierreBanco.newCondition();
     }
 
-    public void transferencia(int cuentaOrigen, int cuentaDestino, double cantidad) throws InterruptedException {
+    public synchronized void transferencia(int cuentaOrigen, int cuentaDestino, double cantidad) throws InterruptedException {
 
-        cierreBanco.lock();
+        //cierreBanco.lock();
 
-        try {
+        //try {
             while (this.cuentas[cuentaOrigen] < cantidad) {
                 //System.out.println("--------------CANTIDAD INSUFICIENTE:" + cuentaOrigen + ".....SALDO: " + cuentas[cuentaOrigen] + "....CANTIDAD: " + cantidad);
-                this.saldoSuficiente.await();
+                //this.saldoSuficiente.await();
+                wait();
             }
 
             System.out.println(Thread.currentThread());
@@ -36,11 +37,12 @@ public class Banco {
             this.cuentas[cuentaDestino] += cantidad;
             System.out.printf("%10.2f de %d para %d", cantidad, cuentaOrigen, cuentaDestino);
             System.out.printf(" Saldo total: %10.2f%n", getSaldoTotal());
-            saldoSuficiente.signalAll();
-        } finally {
+            //saldoSuficiente.signalAll();
+            notifyAll();
+        }/*finally {
             cierreBanco.unlock();
-        }
-    }
+        }*/
+    //}
 
     public double getSaldoTotal() {
 
