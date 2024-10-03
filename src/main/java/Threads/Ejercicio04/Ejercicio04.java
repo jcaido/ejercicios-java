@@ -3,7 +3,9 @@ package Threads.Ejercicio04;
 public class Ejercicio04 {
 
     /*
-        Utilizar varios hilos que muestren los numeros del  al 20
+        Crear dos hilos de ejecución que muestren los numeros del 1 al 20 utilizando la interfaz Runnable.
+        Se ejecutará primero el hilo 1 y por último el hilo dos. Al final del programa debe aparecer un
+        mensaje indicando que las tareas han terminado.
      */
 
     public static void main(String[] args) throws InterruptedException {
