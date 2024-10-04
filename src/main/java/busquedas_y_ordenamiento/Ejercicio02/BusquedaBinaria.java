@@ -7,18 +7,33 @@ public class BusquedaBinaria {
     private int[] array;
     private int enteroABuscar;
 
+    public int getEnteroABuscar() {
+        return enteroABuscar;
+    }
+
     public BusquedaBinaria(int[] array, int enteroABuscar) {
         this.array = array;
         this.enteroABuscar = enteroABuscar;
     }
-    public int[] obtenerNuevoArray(int[] arrayRecibido) {
-        int mitad = arrayRecibido.length/2;
 
-        if (this.enteroABuscar < arrayRecibido[mitad])
-            return Arrays.copyOfRange(arrayRecibido, 0, arrayRecibido.length/2);
+    public boolean compararEnteroABuscarTerminoMedio(int[] array) {
+        if (this.enteroABuscar == array[obtenerMitadArray(array)]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        else if (this.enteroABuscar > arrayRecibido[mitad])
-            return Arrays.copyOfRange(arrayRecibido, arrayRecibido.length/2, arrayRecibido.length);
+    public int obtenerMitadArray(int[] array) {
+        return array.length/2;
+    }
+    public int[] obtenerNuevoArray(int[] array) {
+
+        if (this.enteroABuscar < array[obtenerMitadArray(array)])
+            return Arrays.copyOfRange(array, 0, array.length/2);
+
+        else if (this.enteroABuscar > array[obtenerMitadArray(array)])
+            return Arrays.copyOfRange(array, array.length/2, array.length);
 
         else
             return null;
