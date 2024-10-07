@@ -38,4 +38,31 @@ public class BusquedaBinaria {
         else
             return null;
     }
+
+    public void buscar() {
+
+        int posicionInferior = 0;
+        int posicionSuperior = this.array.length -1;
+        int posicionMitad = (posicionSuperior - posicionInferior)/2;
+
+        while(posicionMitad > 0) {
+
+            if (this.enteroABuscar == this.array[posicionMitad]) {
+                System.out.println("El numero " + this.enteroABuscar + " se encuentra en la posicion " + posicionMitad + " del array");
+                break;
+            } else {
+                if (this.enteroABuscar < this.array[posicionMitad]) {
+                    posicionSuperior = posicionMitad-1;
+                    posicionMitad = (posicionSuperior - posicionInferior)/2;
+                } else {
+                    posicionInferior = posicionMitad +1;
+                    posicionMitad = posicionMitad + 1 + (posicionSuperior - posicionInferior)/2;
+                }
+            }
+        }
+
+        System.out.println("posicion inferior: " + posicionInferior);
+        System.out.println("posicion superior: " + posicionSuperior);
+        System.out.println("posicion mitad: " + posicionMitad);
+    }
 }
