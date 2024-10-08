@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Ejercicio04 {
 
     /*
-        Escribe un programa que ordene 10 palabras introducidos por teclado y almacenadas en un objeto de la
-        case ArrayList.
+        Escribe un programa que ordene de manera descendente 10 palabras introducidos por teclado y almacenadas
+        en un objeto de la clase ArrayList.
      */
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class Ejercicio04 {
             miArrayList.add(palabra);
         }
 
-        Collections.sort(miArrayList);
+        Collections.sort(miArrayList, Collections.reverseOrder());
 
         for (String elemento: miArrayList)
             System.out.println(elemento);
