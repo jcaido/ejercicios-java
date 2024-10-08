@@ -10,7 +10,7 @@ public class Ejercicio02 {
 
         int[] array = {2, 4, 8, 10, 12, 24, 35, 43};
 
-        BusquedaBinaria busqueda  = new BusquedaBinaria(array, 4);
+        BusquedaBinaria busqueda  = new BusquedaBinaria(array, 45);
 
         /*System.out.println(".... BUSCANDO ELEMENTO CON VALOR " + busqueda.getEnteroABuscar());
 
@@ -43,6 +43,9 @@ public class Ejercicio02 {
         if (array.length == 1 && array[0] != busqueda.getEnteroABuscar())
             System.out.println("El elemento " + busqueda.getEnteroABuscar() + " no se encuentra en el array");*/
 
-        busqueda.buscar();
+       if (busqueda.buscar() == -1)
+           System.out.println("El elemento " + busqueda.getEnteroABuscar() + " no se encuentra en el array");
+       else
+           System.out.println("El elemento " + busqueda.getEnteroABuscar() + " se encuenta en la posicion " + busqueda.buscar());
     }
 }

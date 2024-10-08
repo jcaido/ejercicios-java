@@ -39,30 +39,27 @@ public class BusquedaBinaria {
             return null;
     }
 
-    public void buscar() {
+    public int buscar() {
 
         int posicionInferior = 0;
         int posicionSuperior = this.array.length -1;
-        int posicionMitad = (posicionSuperior - posicionInferior)/2;
+        int posicionMitad = (posicionInferior + posicionSuperior +1) / 2;
+        int ubicacion = -1;
 
-        while(posicionMitad > 0) {
+        do {
+            if (this.enteroABuscar == this.array[posicionMitad])
+                ubicacion = posicionMitad + 1;
 
-            if (this.enteroABuscar == this.array[posicionMitad]) {
-                System.out.println("El numero " + this.enteroABuscar + " se encuentra en la posicion " + posicionMitad + " del array");
-                break;
-            } else {
-                if (this.enteroABuscar < this.array[posicionMitad]) {
-                    posicionSuperior = posicionMitad-1;
-                    posicionMitad = (posicionSuperior - posicionInferior)/2;
-                } else {
-                    posicionInferior = posicionMitad +1;
-                    posicionMitad = posicionMitad + 1 + (posicionSuperior - posicionInferior)/2;
-                }
-            }
-        }
+            else if (this.enteroABuscar < this.array[posicionMitad])
+                posicionSuperior = posicionMitad - 1;
 
-        System.out.println("posicion inferior: " + posicionInferior);
-        System.out.println("posicion superior: " + posicionSuperior);
-        System.out.println("posicion mitad: " + posicionMitad);
+            else
+                posicionInferior = posicionMitad + 1;
+
+            posicionMitad = (posicionInferior + posicionSuperior + 1) / 2;
+
+        } while((posicionInferior <= posicionSuperior) && (ubicacion == -1));
+
+        return ubicacion;
     }
 }
