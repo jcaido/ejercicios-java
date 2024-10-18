@@ -2,6 +2,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+src/main/java/JDBC/mysql-connector-j-9.1.0.jar
+
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
