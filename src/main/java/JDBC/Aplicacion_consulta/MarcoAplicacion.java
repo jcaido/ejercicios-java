@@ -13,7 +13,11 @@ public class MarcoAplicacion extends JFrame {
     private JTextArea resultado;
     private Connection miConexion;
     private PreparedStatement enviaConsultaSeccion;
+    private PreparedStatement enviaConsultaPais;
+    private PreparedStatement enviaConsultaSeccionPais;
     private final String consultaSeccion  = "SELECT NOMBREARTICULO, SECCION, PRECIO, PAISORIGEN FROM productos WHERE SECCION = ?";
+    private final String consultaPais  = "SELECT NOMBREARTICULO, SECCION, PRECIO, PAISORIGEN FROM productos WHERE PAISORIGEN = ?";
+    private final String consultaSeccionPais  = "SELECT NOMBREARTICULO, SECCION, PRECIO, PAISORIGEN FROM productos WHERE SECCION = ? AND PAISORIGEN = ?";
 
     public MarcoAplicacion() {
         setTitle("Consulta BBDD");
@@ -72,10 +76,26 @@ public class MarcoAplicacion extends JFrame {
         ResultSet rs = null;
 
         try {
+            resultado.setText("");
             String seccion = (String)secciones.getSelectedItem();
-            this.enviaConsultaSeccion = this.miConexion.prepareStatement(this.consultaSeccion);
-            this.enviaConsultaSeccion.setString(1, seccion);
-            rs = this.enviaConsultaSeccion.executeQuery();
+            String pais = (String)paises.getSelectedItem();
+
+            if (!seccion.equals("Todos") && pais.equals("Todos")) {
+                this.enviaConsultaSeccion = this.miConexion.prepareStatement(this.consultaSeccion);
+                this.enviaConsultaSeccion.setString(1, seccion);
+                rs = this.enviaConsultaSeccion.executeQuery();
+            } else if (seccion.equals("Todos") && !pais.equals("Todos")) {
+                this.enviaConsultaPais = this.miConexion.prepareStatement(this.consultaPais);
+                this.enviaConsultaPais.setString(1, pais);
+                rs = this.enviaConsultaSeccion.executeQuery();
+            } else if (!seccion.equals("Todos") && !pais.equals("Todos")) {
+                this.enviaConsultaSeccionPais = this.miConexion.prepareStatement(this.consultaSeccionPais);
+                this.enviaConsultaSeccionPais.setString(1, seccion);
+                this.enviaConsultaSeccionPais.setString(2, pais);
+                rs = this.enviaConsultaSeccionPais.executeQuery();
+            }
+
+
             while (rs.next()) {
                 resultado.append(rs.getString(1));
                 resultado.append(", ");
