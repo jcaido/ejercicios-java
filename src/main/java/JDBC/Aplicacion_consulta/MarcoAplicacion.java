@@ -87,7 +87,7 @@ public class MarcoAplicacion extends JFrame {
             } else if (seccion.equals("Todos") && !pais.equals("Todos")) {
                 this.enviaConsultaPais = this.miConexion.prepareStatement(this.consultaPais);
                 this.enviaConsultaPais.setString(1, pais);
-                rs = this.enviaConsultaSeccion.executeQuery();
+                rs = this.enviaConsultaPais.executeQuery();
             } else if (!seccion.equals("Todos") && !pais.equals("Todos")) {
                 this.enviaConsultaSeccionPais = this.miConexion.prepareStatement(this.consultaSeccionPais);
                 this.enviaConsultaSeccionPais.setString(1, seccion);
